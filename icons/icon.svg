@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background with dark brutalist grids -->
+  <rect width="512" height="512" fill="#08080c" rx="32" />
+  <path d="M 0,64 L 512,64 M 0,128 L 512,128 M 0,192 L 512,192 M 0,256 L 512,256 M 0,320 L 512,320 M 0,384 L 512,384 M 0,448 L 512,448" stroke="#12121e" stroke-width="2"/>
+  <path d="M 64,0 L 64,512 M 128,0 L 128,512 M 192,0 L 192,512 M 256,0 L 256,512 M 320,0 L 320,512 M 384,0 L 384,512 M 448,0 L 448,512" stroke="#12121e" stroke-width="2"/>
+  
+  <!-- Outer brutalist shadow board -->
+  <rect x="52" y="52" width="416" height="416" fill="none" stroke="#ff007f" stroke-width="8" rx="16" />
+  <rect x="44" y="44" width="416" height="416" fill="none" stroke="#00f0ff" stroke-width="8" rx="16" />
+  
+  <!-- Cyber Microphone Symbol -->
+  <g transform="translate(0, 0)">
+    <!-- Stand -->
+    <path d="M 256,360 L 256,440 M 176,440 L 336,440" stroke="#39ff14" stroke-width="16" stroke-linecap="square" />
+    <!-- U-shaped holder -->
+    <path d="M 166,220 A 90,90 0 0,0 346,220" fill="none" stroke="#00f0ff" stroke-width="16" stroke-linecap="square" />
+    
+    <!-- Mic Body -->
+    <rect x="216" y="100" width="80" height="180" rx="40" fill="#0d0d1a" stroke="#ff007f" stroke-width="12" />
+    
+    <!-- Grille Lines -->
+    <line x1="218" y1="140" x2="294" y2="140" stroke="#ff007f" stroke-width="8" />
+    <line x1="218" y1="165" x2="294" y2="165" stroke="#ff007f" stroke-width="8" />
+    <line x1="218" y1="190" x2="294" y2="190" stroke="#ff007f" stroke-width="8" />
+    <line x1="256" y1="100" x2="256" y2="280" stroke="#00f0ff" stroke-width="6" stroke-opacity="0.7"/>
+    
+    <!-- Cyber Glitch Blocks -->
+    <rect x="150" y="80" width="40" height="15" fill="#39ff14" />
+    <rect x="330" y="300" width="30" height="15" fill="#ff007f" />
+    <rect x="180" y="360" width="20" height="20" fill="#00f0ff" />
+  </g>
+  
+  <!-- Neon Text: VOX -->
+  <text x="256" y="485" font-family="'Orbitron', sans-serif" font-weight="900" font-size="32" fill="#39ff14" text-anchor="middle" letter-spacing="4">VOX BATTLE</text>
+</svg>

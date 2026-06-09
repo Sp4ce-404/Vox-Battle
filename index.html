@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#08080c">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="VoxBattle - Real-time gaming voice changer with thousands of neon brutalist style voice presets for Free Fire, PUBG, and mobile battlegrounds.">
+  
+  <title>VoxBattle | Gaming Voice Changer</title>
+  
+  <!-- Manifest & Favicon -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+</head>
+<body>
+
+  <!-- App Shell -->
+  <div class="app-container">
+    
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-logo-container"><img src="./icons/icon.svg" class="brand-logo" alt="Logo"></span>
+        <h1 class="brand-name">VOX<span class="neon-pink">BATTLE</span></h1>
+      </div>
+      <div class="header-actions">
+        <button id="pwa-install-btn" class="brutal-btn mini-btn neon-green-btn hidden">INSTALL</button>
+        <div class="mic-status-indicator" id="mic-status">
+          <span class="indicator-dot"></span>
+          <span class="indicator-text">MIC OFF</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-content">
+      
+      <!-- VIEW 1: VOICES (PRESETS) -->
+      <section id="view-voices" class="app-view active">
+        <div class="search-filter-bar">
+          <div class="search-container">
+            <input type="text" id="voice-search" placeholder="SEARCH 1,000+ VOICES..." autocomplete="off">
+            <button class="search-clear-btn hidden" id="search-clear">&times;</button>
+          </div>
+          <div class="categories-wrapper">
+            <div class="categories-scroll" id="categories-tabs">
+              <!-- Dynamically populated categories -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="voices-grid-container">
+          <div class="voices-grid" id="voices-grid">
+            <!-- Dynamically populated voice cards -->
+          </div>
+          <div id="voices-loading" class="loading-state hidden">
+            <div class="spinner"></div>
+            <p>GENERATING VOICES...</p>
+          </div>
+          <div id="voices-empty" class="empty-state hidden">
+            <p>NO VOICES FOUND FOR THAT SEARCH</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: RECORD -->
+      <section id="view-record" class="app-view">
+        <div class="record-panel-card">
+          <div class="panel-header neon-border-cyan">
+            <span class="panel-title">VOICE MODULATOR</span>
+            <span class="active-preset-badge" id="record-active-preset">NORMAL VOICE</span>
+          </div>
+          
+          <div class="visualizer-container">
+            <canvas id="visualizer-canvas"></canvas>
+            <div class="visualizer-glow"></div>
+            <div class="visualizer-overlay-text" id="mic-permission-prompt">
+              <button class="brutal-btn neon-pink-btn" id="enable-mic-btn">ENABLE MIC</button>
+              <p>ALLOW MICROPHONE TO START REAL-TIME MODULATION</p>
+            </div>
+          </div>
+
+          <div class="record-controls-row">
+            <div class="recording-timer" id="record-timer">00:00</div>
+            
+            <button class="record-main-btn" id="record-btn">
+              <div class="record-btn-inner"></div>
+            </button>
+            
+            <div class="monitoring-toggle">
+              <label class="brutal-switch">
+                <input type="checkbox" id="hear-myself-toggle">
+                <span class="switch-slider"></span>
+              </label>
+              <span class="switch-label">HEAR MYSELF</span>
+            </div>
+          </div>
+          
+          <!-- Recording Playback / Save Card -->
+          <div class="playback-card hidden" id="playback-card">
+            <h3 class="playback-title">LAST RECORDING</h3>
+            <div class="audio-player-controls">
+              <button class="brutal-btn player-btn" id="playback-play-btn">PLAY</button>
+              <div class="player-progress-container">
+                <div class="player-progress-bar" id="playback-progress"></div>
+              </div>
+              <span class="player-time" id="playback-time">0:00 / 0:00</span>
+            </div>
+            <div class="playback-actions">
+              <button class="brutal-btn neon-green-btn" id="download-record-btn">SAVE WAV</button>
+              <button class="brutal-btn neon-cyan-btn" id="share-record-btn">SHARE CLIP</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: CUSTOM EFFECT BOARD -->
+      <section id="view-custom" class="app-view">
+        <div class="custom-board-header">
+          <h2>DSP SHAPING PANEL</h2>
+          <p>TWEAK INDIVIDUAL FREQUENCY NODES AND EFFECTS TO DEFINE YOUR CHARACTER</p>
+        </div>
+        
+        <div class="sliders-grid">
+          <!-- Pitch Slider -->
+          <div class="slider-card neon-border-pink">
+            <div class="slider-info">
+              <span class="slider-name">PITCH SHIFT</span>
+              <span class="slider-value" id="val-pitch">0</span>
+            </div>
+            <input type="range" id="slider-pitch" min="-12" max="12" step="1" value="0">
+            <span class="slider-desc">Negative for deep villain, positive for chipmunk</span>
+          </div>
+
+          <!-- Distortion Slider -->
+          <div class="slider-card">
+            <div class="slider-info">
+              <span class="slider-name">DISTORTION (FUZZ)</span>
+              <span class="slider-value" id="val-dist">0%</span>
+            </div>
+            <input type="range" id="slider-dist" min="0" max="100" step="1" value="0">
+            <span class="slider-desc">Add grit, saturation, and mechanical buzz</span>
+          </div>
+
+          <!-- Reverb Slider -->
+          <div class="slider-card">
+            <div class="slider-info">
+              <span class="slider-name">REVERB (SPACE)</span>
+              <span class="slider-value" id="val-reverb">0%</span>
+            </div>
+            <input type="range" id="slider-reverb" min="0" max="100" step="1" value="0">
+            <span class="slider-desc">Spatial echo from tiny room to endless cavern</span>
+          </div>
+
+          <!-- Echo Delay Slider -->
+          <div class="slider-card">
+            <div class="slider-info">
+              <span class="slider-name">ECHO FEEDBACK</span>
+              <span class="slider-value" id="val-delay">0%</span>
+            </div>
+            <input type="range" id="slider-delay" min="0" max="100" step="1" value="0">
+            <span class="slider-desc">Creates repeating sound taps (retro radio effect)</span>
+          </div>
+
+          <!-- Robot Ring Modulator -->
+          <div class="slider-card">
+            <div class="slider-info">
+              <span class="slider-name">CYBORG MODULATOR</span>
+              <span class="slider-value" id="val-robot">0 Hz</span>
+            </div>
+            <input type="range" id="slider-robot" min="0" max="120" step="1" value="0">
+            <span class="slider-desc">Synthesizes voice with metallic ring oscillator</span>
+          </div>
+
+          <!-- Equalizer Bass Slider -->
+          <div class="slider-card">
+            <div class="slider-info">
+              <span class="slider-name">BASS BOOST</span>
+              <span class="slider-value" id="val-bass">0 dB</span>
+            </div>
+            <input type="range" id="slider-bass" min="-10" max="15" step="1" value="0">
+            <span class="slider-desc">Enhance lower harmonics for booming presence</span>
+          </div>
+
+          <!-- Equalizer Treble Slider -->
+          <div class="slider-card">
+            <div class="slider-info">
+              <span class="slider-name">TREBLE SHARP</span>
+              <span class="slider-value" id="val-treble">0 dB</span>
+            </div>
+            <input type="range" id="slider-treble" min="-10" max="15" step="1" value="0">
+            <span class="slider-desc">Boost high frequencies for crisp radio static clarity</span>
+          </div>
+        </div>
+        
+        <div class="custom-save-card neon-border-green">
+          <h3>SAVE CUSTOM PRESET</h3>
+          <div class="custom-save-form">
+            <input type="text" id="custom-preset-name" placeholder="PRESET NAME (e.g. ULTRA CYBORG)" max-length="20">
+            <button class="brutal-btn neon-green-btn" id="save-custom-btn">SAVE TO MY VOICES</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 4: HOW TO USE / GAMING GUIDE -->
+      <section id="view-guide" class="app-view">
+        <div class="guide-container">
+          <h2 class="guide-title text-neon-green">GAMING VOICE INTEGRATION GUIDE</h2>
+          
+          <div class="brutal-alert neon-border-pink">
+            <div class="alert-icon">!</div>
+            <div class="alert-content">
+              <strong>MOBILE AUDIO LIMITATION</strong><br>
+              Android 9+ security blocks apps from directly feeding audio into another app's microphone input. Read below to connect to Free Fire / PUBG!
+            </div>
+          </div>
+          
+          <div class="guide-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>SPEAKER LOOPBACK METHOD (EASY)</h3>
+              <p>Turn on <strong>HEAR MYSELF</strong>, set phone volume high, and start playing. Your phone speaker will play your modified voice, and your headset or internal mic will pick it up and transmit it into the game lobby.</p>
+            </div>
+          </div>
+
+          <div class="guide-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>TWO-PHONE / AUX METHOD (PRO)</h3>
+              <p>Play the game on one phone. Open this app on a second phone. Connect the headphone jack of the voice-changer phone to the microphone jack of the gaming phone using an AUX splitter. Your modified voice will feed directly into the game crystal clear!</p>
+            </div>
+          </div>
+
+          <div class="guide-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>PC EMULATOR METHOD</h3>
+              <p>If playing Free Fire or PUBG on PC (via BlueStacks, LDPlayer, Gameloop, etc.), open this app in your PC browser, turn on <strong>HEAR MYSELF</strong>, and set your game input to "Stereo Mix" or your Virtual Audio Cable output.</p>
+            </div>
+          </div>
+          
+          <div class="faq-section">
+            <h3>FAQ</h3>
+            <div class="faq-item">
+              <span class="faq-q">Will this lag?</span>
+              <p class="faq-a">We use low-latency Web Audio buffers. For the absolute lowest delay, use wired headphones instead of Bluetooth gaming headsets which add 150ms+ of Bluetooth latency.</p>
+            </div>
+            <div class="faq-item">
+              <span class="faq-q">Does this work offline?</span>
+              <p class="faq-a">Yes! Once installed on your phone, VoxBattle loads and runs entirely offline without internet, saving your mobile data while gaming.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Sticky Navigation Bar -->
+    <nav class="app-nav">
+      <button class="nav-item active" data-view="view-voices">
+        <span class="nav-icon">📣</span>
+        <span class="nav-text">VOICES</span>
+      </button>
+      <button class="nav-item" data-view="view-record">
+        <span class="nav-icon">🎙️</span>
+        <span class="nav-text">RECORD</span>
+      </button>
+      <button class="nav-item" data-view="view-custom">
+        <span class="nav-icon">🎛️</span>
+        <span class="nav-text">CUSTOM</span>
+      </button>
+      <button class="nav-item" data-view="view-guide">
+        <span class="nav-icon">📖</span>
+        <span class="nav-text">GUIDE</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- Main Application Script -->
+  <script type="module" src="./js/ui/App.js"></script>
+
+  <!-- Service Worker registration -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+          .then(reg => console.log("Service Worker registered successfully:", reg.scope))
+          .catch(err => console.error("Service Worker registration failed:", err));
+      });
+    }
+  </script>
+
+</body>
+</html>

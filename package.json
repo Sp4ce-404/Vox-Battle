@@ -1,0 +1,18 @@
+{
+  "name": "voxbattle-voice-changer",
+  "version": "1.0.0",
+  "description": "Real-time gaming voice changer PWA for Free Fire & PUBG players",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 8080"
+  },
+  "keywords": [
+    "voice-changer",
+    "pwa",
+    "web-audio-api",
+    "gaming",
+    "android"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

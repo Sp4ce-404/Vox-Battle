@@ -1,0 +1,49 @@
+:root {
+  /* Colors */
+  --bg-darker: #08080c;
+  --bg-dark: #0f0f18;
+  --bg-card: #141424;
+  --bg-input: #1a1a2e;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0c0;
+  --text-muted: #606080;
+  
+  /* Neons */
+  --neon-pink: #ff007f;
+  --neon-cyan: #00f0ff;
+  --neon-green: #39ff14;
+  --neon-yellow: #fffb00;
+  --neon-purple: #bd00ff;
+  
+  /* Neons with opacity */
+  --neon-pink-alpha: rgba(255, 0, 127, 0.15);
+  --neon-cyan-alpha: rgba(0, 240, 255, 0.15);
+  --neon-green-alpha: rgba(57, 255, 20, 0.15);
+  
+  /* Brutalist Shadows & Borders */
+  --brutal-border-width: 3px;
+  --brutal-border-color: #000000;
+  --brutal-border: var(--brutal-border-width) solid var(--brutal-border-color);
+  
+  --brutal-shadow-pink: 4px 4px 0px var(--neon-pink);
+  --brutal-shadow-cyan: 4px 4px 0px var(--neon-cyan);
+  --brutal-shadow-green: 4px 4px 0px var(--neon-green);
+  --brutal-shadow-yellow: 4px 4px 0px var(--neon-yellow);
+  --brutal-shadow-black: 4px 4px 0px var(--brutal-border-color);
+  
+  --brutal-radius: 4px; /* Brutalist design favors blocky corners */
+  
+  /* Fonts */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Spacing */
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --header-height: 64px;
+  --nav-height: 72px;
+}
