@@ -2,7 +2,7 @@
   "name": "VoxBattle Voice Changer",
   "short_name": "VoxBattle",
   "description": "Real-time gaming voice changer for Free Fire and PUBG Mobile players.",
-  "start_url": "./index.html",
+  "start_url": "/Vox-Battle/index.html",
   "id": "/Vox-Battle/",
   "prefer_related_applications": false,
   "display": "standalone",
