@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOWNLOAD | VOXFORGE</title>
+    <meta name="description" content="Download VoxForge for Windows. Android coming soon.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2308080c'/><text x='50' y='65' text-anchor='middle' font-family='monospace' font-size='60' font-weight='900' fill='%23ff00ff'>V</text></svg>">
+</head>
+<body class="page-download">
+
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand" data-magnetic>VOX<span class="neon-pink">FORGE</span></a>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="download.html" class="nav-btn active">DOWNLOAD</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" data-magnetic>
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="mobile-link">HOME</a>
+        <a href="index.html#features" class="mobile-link">FEATURES</a>
+        <a href="about.html" class="mobile-link">ABOUT</a>
+        <a href="download.html" class="mobile-link">DOWNLOAD</a>
+    </div>
+
+    <main class="page-content">
+        <div class="badge"><span class="badge-dot"></span> v1.0.4 — LATEST BUILD</div>
+        <h1 class="section-title download-title">SELECT YOUR <span class="neon-green" data-scramble="PLATFORM|DEVICE|SYSTEM|MACHINE">PLATFORM</span></h1>
+
+        <div class="download-grid">
+            <!-- WINDOWS — LIVE -->
+            <div class="dl-card windows glow-pulse" data-magnetic>
+                <div class="platform-icon windows-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor">
+                        <path d="M3 5.5L10.5 4v8H3V5.5zM3 12.5h7.5v8L3 19.5v-7zM11.5 4L21 2.5v9.5h-9.5V4zM11.5 12.5H21V21.5L11.5 20v-7.5z"/>
+                    </svg>
+                </div>
+                <h2>WINDOWS</h2>
+                <div class="status-badge live"><span class="status-dot"></span> AVAILABLE NOW</div>
+                <p>The full power of VoxForge on your desktop. Ultra-low latency for PC gamers.</p>
+                <ul class="dl-meta">
+                    <li><strong>Version:</strong> 1.0.4</li>
+                    <li><strong>Size:</strong> 24.6 MB</li>
+                    <li><strong>Updated:</strong> June 2026</li>
+                </ul>
+                <a href="#" class="brutal-btn neon-green-btn dl-btn" data-magnetic id="dl-windows">
+                    <span class="dl-icon">⬇</span> DOWNLOAD .EXE
+                </a>
+                <p class="dl-note">Windows 10/11 (64-bit) • Free • No ads</p>
+            </div>
+
+            <!-- ANDROID — COMING SOON -->
+            <div class="dl-card android" data-magnetic>
+                <div class="platform-icon android-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor">
+                        <path d="M17.523 15.341a1.2 1.2 0 1 1 1.2-1.2 1.2 1.2 0 0 1-1.2 1.2m-11.045 0a1.2 1.2 0 1 1 1.2-1.2 1.2 1.2 0 0 1-1.2 1.2m11.45-6.02l1.81-3.14a.45.45 0 0 0-.165-.616.45.45 0 0 0-.615.165l-1.83 3.17a13.13 13.13 0 0 0-5.13-1.01 13.13 13.13 0 0 0-5.13 1.01L4.94 5.73a.45.45 0 0 0-.78.45l1.81 3.14C2.95 11.07 1 13.5 1 16.25h22c0-2.75-1.95-5.18-5.07-6.93"/>
+                    </svg>
+                </div>
+                <h2>ANDROID</h2>
+                <div class="coming-soon-badge">COMING SOON</div>
+                <p>Direct PWA installation for mobile battlegrounds. Optimized for Android 11+.</p>
+                <ul class="dl-meta">
+                    <li><strong>Target:</strong> Android 11+</li>
+                    <li><strong>Format:</strong> PWA + native APK</li>
+                    <li><strong>ETA:</strong> Q3 2026</li>
+                </ul>
+                <a href="#" class="brutal-btn-outline disabled dl-btn" data-magnetic>
+                    <span class="dl-icon">🔔</span> NOTIFY ME
+                </a>
+                <p class="dl-note">Get notified when it drops</p>
+            </div>
+        </div>
+
+        <!-- SYSTEM REQUIREMENTS -->
+        <section class="sysreq">
+            <h2 class="section-title">SYSTEM <span class="neon-cyan">REQUIREMENTS</span></h2>
+            <div class="sysreq-grid">
+                <div class="sysreq-card slide-up">
+                    <h3>MINIMUM</h3>
+                    <ul>
+                        <li><span class="req-key">OS</span><span class="req-val">Windows 10 (64-bit)</span></li>
+                        <li><span class="req-key">CPU</span><span class="req-val">Dual-core 1.6 GHz</span></li>
+                        <li><span class="req-key">RAM</span><span class="req-val">2 GB</span></li>
+                        <li><span class="req-key">Storage</span><span class="req-val">50 MB</span></li>
+                        <li><span class="req-key">Audio</span><span class="req-val">Any soundcard</span></li>
+                        <li><span class="req-key">Net</span><span class="req-val">Not required</span></li>
+                    </ul>
+                </div>
+                <div class="sysreq-card recommended slide-up">
+                    <h3>RECOMMENDED <span class="rec-badge">★</span></h3>
+                    <ul>
+                        <li><span class="req-key">OS</span><span class="req-val">Windows 11 (64-bit)</span></li>
+                        <li><span class="req-key">CPU</span><span class="req-val">Quad-core 2.5 GHz+</span></li>
+                        <li><span class="req-key">RAM</span><span class="req-val">8 GB</span></li>
+                        <li><span class="req-key">Storage</span><span class="req-val">200 MB</span></li>
+                        <li><span class="req-key">Audio</span><span class="req-val">ASIO / WASAPI</span></li>
+                        <li><span class="req-key">Net</span><span class="req-val">For updates only</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALL GUIDE -->
+        <section class="install-guide">
+            <h2 class="section-title">INSTALL <span class="neon-pink">GUIDE</span></h2>
+            <ol class="steps">
+                <li class="step slide-up">
+                    <div class="step-num">01</div>
+                    <div class="step-content">
+                        <h3>DOWNLOAD</h3>
+                        <p>Click the green button above. Save the .exe somewhere you can find it (Desktop is fine).</p>
+                    </div>
+                </li>
+                <li class="step slide-up">
+                    <div class="step-num">02</div>
+                    <div class="step-content">
+                        <h3>RUN AS ADMIN</h3>
+                        <p>Right-click the .exe → <em>Run as administrator</em>. This lets VoxForge install the virtual audio driver.</p>
+                    </div>
+                </li>
+                <li class="step slide-up">
+                    <div class="step-num">03</div>
+                    <div class="step-content">
+                        <h3>SET YOUR MIC</h3>
+                        <p>Open your app of choice (Discord, game, OBS) and select <em>"VoxForge Virtual Mic"</em> as the input device.</p>
+                    </div>
+                </li>
+                <li class="step slide-up">
+                    <div class="step-num">04</div>
+                    <div class="step-content">
+                        <h3>FORGE</h3>
+                        <p>Pick a preset. Speak. Hear yourself become someone — or something — else. Welcome to the forge.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- VERSION HISTORY -->
+        <section class="versions">
+            <h2 class="section-title">VERSION <span class="neon-green">HISTORY</span></h2>
+            <div class="version-list">
+                <div class="version-row latest">
+                    <div class="v-tag">LATEST</div>
+                    <div class="v-meta">
+                        <h3>v1.0.4</h3>
+                        <span class="v-date">June 12, 2026</span>
+                    </div>
+                    <ul class="v-changes">
+                        <li>+ Added 47 new demonic presets</li>
+                        <li>+ Improved noise shield (AI model v2)</li>
+                        <li>~ Fixed audio crackle on certain Realtek drivers</li>
+                    </ul>
+                </div>
+                <div class="version-row">
+                    <div class="v-meta">
+                        <h3>v1.0.3</h3>
+                        <span class="v-date">May 28, 2026</span>
+                    </div>
+                    <ul class="v-changes">
+                        <li>+ Discord integration presets</li>
+                        <li>~ Reduced CPU usage by 18%</li>
+                    </ul>
+                </div>
+                <div class="version-row">
+                    <div class="v-meta">
+                        <h3>v1.0.0</h3>
+                        <span class="v-date">May 1, 2026</span>
+                    </div>
+                    <ul class="v-changes">
+                        <li>+ Initial public release</li>
+                        <li>+ 1,200 base presets</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">VOX<span class="neon-pink">FORGE</span></div>
+            <p>&copy; 2026 Antigravity. Forge the sound of victory.</p>
+            <div class="footer-links">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="download.html">DOWNLOAD</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

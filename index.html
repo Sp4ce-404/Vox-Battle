@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOXFORGE | Forge Your Ultimate Gaming Voice</title>
+    <meta name="description" content="VoxForge — the definitive real-time voice modulation engine. Zero latency. Zero noise. Total anonymity.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2308080c'/><text x='50' y='65' text-anchor='middle' font-family='monospace' font-size='60' font-weight='900' fill='%23ff00ff'>V</text></svg>">
+</head>
+<body class="page-home">
+
+    <!-- PARTICLE CANVAS BACKGROUND -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- SCANLINE OVERLAY -->
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- CURSOR TRAIL (custom cursor ring) -->
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand" data-magnetic>VOX<span class="neon-pink">FORGE</span></a>
+        <div class="nav-links">
+            <a href="#features">FEATURES</a>
+            <a href="about.html">ABOUT</a>
+            <a href="#download" class="nav-btn">DOWNLOAD</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" data-magnetic>
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="mobile-link">HOME</a>
+        <a href="#features" class="mobile-link">FEATURES</a>
+        <a href="about.html" class="mobile-link">ABOUT</a>
+        <a href="download.html" class="mobile-link">DOWNLOAD</a>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge"><span class="badge-dot"></span> v1.0 STABLE RELEASE</div>
+            <h1 class="hero-title">
+                <span class="line">FORGE YOUR</span>
+                <span class="line outline-text" data-scramble="IDENTITY|PRESENCE|LEGACY|REIGN">IDENTITY</span>
+            </h1>
+            <p class="hero-subtitle">The definitive real-time voice modulation engine for battlegrounds. Zero latency. Zero noise. Total anonymity.</p>
+            <div class="hero-actions">
+                <a href="download.html" class="brutal-btn neon-green-btn" data-magnetic>INSTALL NOW →</a>
+                <a href="#features" class="brutal-btn-outline" data-magnetic>VIEW MODULES</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num" data-count="1200" data-suffix="+">0</span><span class="stat-label">PRESETS</span></div>
+                <div class="stat"><span class="stat-num" data-count="3" data-suffix="ms">0</span><span class="stat-label">LATENCY</span></div>
+                <div class="stat"><span class="stat-num" data-count="50" data-suffix="K+">0</span><span class="stat-label">PLAYERS</span></div>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="visual-card main-card">
+                <div class="card-header">
+                    <span class="card-dot"></span>SYSTEM_STATUS: ACTIVE
+                </div>
+                <div class="card-body">
+                    <div class="waveform">
+                        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                        <div class="bar"></div><div class="bar"></div>
+                    </div>
+                    <div class="status-text">MODULATING VOICE<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+                </div>
+            </div>
+            <div class="visual-card sub-card">
+                <div class="card-header">
+                    <span class="card-dot pink"></span>FX_LOADOUT
+                </div>
+                <div class="card-body">
+                    <div class="fx-tag">PITCH +12</div>
+                    <div class="fx-tag">ROBOTIC</div>
+                    <div class="fx-tag">REVERB</div>
+                    <div class="fx-tag cyan">ECHO 0.4</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- VOICE WALL MARQUEE -->
+    <section class="voice-wall" aria-label="Available voice presets">
+        <div class="voice-brick-track">
+            <span class="voice-brick">⚡ DEMON</span>
+            <span class="voice-brick">🎭 CYBER</span>
+            <span class="voice-brick">👾 ROBOT</span>
+            <span class="voice-brick">🌑 SHADOW</span>
+            <span class="voice-brick">🔥 ASH</span>
+            <span class="voice-brick">❄️ FROST</span>
+            <span class="voice-brick">⚙️ MACHINE</span>
+            <span class="voice-brick">👻 WRAITH</span>
+            <span class="voice-brick">💀 REAPER</span>
+            <span class="voice-brick">🐉 DRAGON</span>
+            <!-- duplicate for seamless loop -->
+            <span class="voice-brick" aria-hidden="true">⚡ DEMON</span>
+            <span class="voice-brick" aria-hidden="true">🎭 CYBER</span>
+            <span class="voice-brick" aria-hidden="true">👾 ROBOT</span>
+            <span class="voice-brick" aria-hidden="true">🌑 SHADOW</span>
+            <span class="voice-brick" aria-hidden="true">🔥 ASH</span>
+            <span class="voice-brick" aria-hidden="true">❄️ FROST</span>
+            <span class="voice-brick" aria-hidden="true">⚙️ MACHINE</span>
+            <span class="voice-brick" aria-hidden="true">👻 WRAITH</span>
+            <span class="voice-brick" aria-hidden="true">💀 REAPER</span>
+            <span class="voice-brick" aria-hidden="true">🐉 DRAGON</span>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+        <h2 class="section-title">CORE <span class="neon-pink">MODULES</span></h2>
+        <div class="feature-grid">
+            <div class="feature-card blur-in" data-magnetic>
+                <div class="feature-icon">⚡</div>
+                <h3>ZERO LATENCY</h3>
+                <p>Engineered for competitive play. Your voice transforms instantly with no lag between you and the lobby.</p>
+                <div class="card-corner"></div>
+            </div>
+            <div class="feature-card blur-in" data-magnetic>
+                <div class="feature-icon">🛡️</div>
+                <h3>NOISE SHIELD</h3>
+                <p>Integrated AI noise suppression. Only the modified voice goes through, leaving the background static behind.</p>
+                <div class="card-corner"></div>
+            </div>
+            <div class="feature-card blur-in" data-magnetic>
+                <div class="feature-icon">🎨</div>
+                <h3>ENDLESS VOICES</h3>
+                <p>From deep demonic lords to high-pitch cyber-glitches. Explore 1,200+ presets or forge your own.</p>
+                <div class="card-corner"></div>
+            </div>
+            <div class="feature-card blur-in" data-magnetic>
+                <div class="feature-icon">🔒</div>
+                <h3>100% PRIVATE</h3>
+                <p>Audio never leaves your device. No servers. No telemetry. No compromises on your anonymity.</p>
+                <div class="card-corner"></div>
+            </div>
+            <div class="feature-card blur-in" data-magnetic>
+                <div class="feature-icon">🎮</div>
+                <h3>ANY PLATFORM</h3>
+                <p>Works with Discord, in-game chat, OBS, and any app that uses your microphone. Drop-in virtual driver.</p>
+                <div class="card-corner"></div>
+            </div>
+            <div class="feature-card blur-in" data-magnetic>
+                <div class="feature-icon">⚙️</div>
+                <h3>PRO CONTROLS</h3>
+                <p>Real-time pitch, formant, reverb, echo, ring mod, vocoder. Studio-grade knobs in a brutalist shell.</p>
+                <div class="card-corner"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYSTEM / HOW IT WORKS -->
+    <section id="how-it-works" class="system-info">
+        <h2 class="section-title glitch-text">THE <span class="neon-cyan">SYSTEM</span></h2>
+        <div class="info-container">
+            <div class="info-box neon-border-cyan slide-up" data-magnetic>
+                <div class="info-num">01</div>
+                <h3>SINE-WAVE PROCESSING</h3>
+                <p>VoxForge uses low-latency Web Audio buffers to ensure your voice is modulated in real-time without affecting game performance.</p>
+            </div>
+            <div class="info-box neon-border-pink slide-up" data-magnetic>
+                <div class="info-num">02</div>
+                <h3>VIRTUAL DRIVER</h3>
+                <p>A virtual audio cable appears to your system as a microphone. Any app picks it up — Discord, Steam, OBS — instantly.</p>
+            </div>
+            <div class="info-box neon-border-green slide-up" data-magnetic>
+                <div class="info-num">03</div>
+                <h3>PWA TECHNOLOGY</h3>
+                <p>No app store required. Install directly to your home screen for full-screen, offline access during your matches.</p>
+            </div>
+            <div class="info-box neon-border-cyan slide-up" data-magnetic>
+                <div class="info-num">04</div>
+                <h3>OFFLINE-FIRST</h3>
+                <p>Every preset, every effect, every config lives in your browser. Works on a plane, on a train, in the middle of nowhere.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS / SOCIAL PROOF -->
+    <section class="testimonials">
+        <h2 class="section-title">LOBBY <span class="neon-green">CHAT</span></h2>
+        <div class="testimonial-grid">
+            <blockquote class="testimonial blur-in">
+                <p>"Trolled an entire squad into thinking I was a 12-year-old. They gave up. 10/10."</p>
+                <cite>— xXNoscopeLord99</cite>
+            </blockquote>
+            <blockquote class="testimonial blur-in">
+                <p>"Latency is basically zero. My duo thought I bought a new mic."</p>
+                <cite>— SqueakyToes</cite>
+            </blockquote>
+            <blockquote class="testimonial blur-in">
+                <p>"The demon preset is unhinged. I love it."</p>
+                <cite>— FrostByte.exe</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download" class="download-section">
+        <div class="download-card glow-pulse">
+            <h2>READY TO <span class="neon-green">DOMINATE?</span></h2>
+            <p>Install VoxForge and start forging your sound. Windows now, Android coming soon.</p>
+            <a href="download.html" class="brutal-btn neon-green-btn large-btn" data-magnetic>CHOOSE YOUR PLATFORM →</a>
+            <p class="footer-note">Optimized for Free Fire, PUBG, Valorant, CS2, and Mobile Battlegrounds</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">VOX<span class="neon-pink">FORGE</span></div>
+            <p>&copy; 2026 Antigravity. Forge the sound of victory.</p>
+            <div class="footer-links">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="download.html">DOWNLOAD</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

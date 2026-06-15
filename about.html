@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT | VOXFORGE</title>
+    <meta name="description" content="The origin story of VoxForge — engineering the future of acoustic identity in competitive gaming.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2308080c'/><text x='50' y='65' text-anchor='middle' font-family='monospace' font-size='60' font-weight='900' fill='%23ff00ff'>V</text></svg>">
+</head>
+<body class="page-about">
+
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand" data-magnetic>VOX<span class="neon-pink">FORGE</span></a>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html" class="active">ABOUT</a>
+            <a href="download.html" class="nav-btn">DOWNLOAD</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" data-magnetic>
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="mobile-link">HOME</a>
+        <a href="index.html#features" class="mobile-link">FEATURES</a>
+        <a href="about.html" class="mobile-link">ABOUT</a>
+        <a href="download.html" class="mobile-link">DOWNLOAD</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="about-hero">
+        <div class="badge"><span class="badge-dot"></span> EST. 2026</div>
+        <h1 class="about-title">
+            <span class="line">THE</span>
+            <span class="line outline-text" data-scramble="ORIGIN|STORY|REASON|MISSION">ORIGIN</span>
+        </h1>
+        <p class="about-subtitle">Engineering the future of acoustic identity.</p>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="stats-strip">
+        <div class="stat-block">
+            <div class="stat-num" data-count="50" data-suffix="K+">0</div>
+            <div class="stat-label">PLAYERS</div>
+        </div>
+        <div class="stat-block">
+            <div class="stat-num" data-count="1200" data-suffix="+">0</div>
+            <div class="stat-label">PRESETS</div>
+        </div>
+        <div class="stat-block">
+            <div class="stat-num" data-count="3" data-suffix="ms">0</div>
+            <div class="stat-label">LATENCY</div>
+        </div>
+        <div class="stat-block">
+            <div class="stat-num" data-count="100" data-suffix="%">0</div>
+            <div class="stat-label">OFFLINE</div>
+        </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto">
+        <h2 class="section-title">THE <span class="neon-pink">MANIFESTO</span></h2>
+        <div class="manifesto-text blur-in">
+            <p class="big-quote">"Your voice is a weapon. <span class="neon-green">Wield it.</span>"</p>
+            <p>VoxForge was born out of a need for absolute anonymity in competitive gaming. We believe your voice should be a tool, a weapon, and a mask — never a liability.</p>
+            <p>We are tired of being doxxed by a 13-year-old with a screen recorder. We are tired of high-pitched squeakers ending our ranked grind. We are tired of being <em>us</em>.</p>
+            <p class="neon-cyan">So we built the forge.</p>
+        </div>
+    </section>
+
+    <!-- THE TECH -->
+    <section class="tech-section">
+        <h2 class="section-title">THE <span class="neon-cyan">TECH</span></h2>
+        <div class="tech-grid">
+            <div class="tech-card slide-up" data-magnetic>
+                <div class="tech-icon">🔊</div>
+                <h3>Web Audio API</h3>
+                <p>Native browser audio graph. No installs, no plugins, no dependencies. Your soundcard does the work.</p>
+            </div>
+            <div class="tech-card slide-up" data-magnetic>
+                <div class="tech-icon">⚡</div>
+                <h3>AudioWorklet</h3>
+                <p>Off-main-thread DSP. Sample-accurate modulation at 48kHz. The same tech used in pro audio plugins.</p>
+            </div>
+            <div class="tech-card slide-up" data-magnetic>
+                <div class="tech-icon">🌐</div>
+                <h3>PWA Architecture</h3>
+                <p>Progressive Web App. Install once, run anywhere. Updates ship the moment you reconnect.</p>
+            </div>
+            <div class="tech-card slide-up" data-magnetic>
+                <div class="tech-icon">🧠</div>
+                <h3>Procedural FX</h3>
+                <p>1,200+ presets generated from synthesis graphs, not recordings. Infinite variations, zero storage cost.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-section">
+        <h2 class="section-title">THE <span class="neon-green">TIMELINE</span></h2>
+        <ol class="timeline">
+            <li class="timeline-item slide-up">
+                <div class="t-dot"></div>
+                <div class="t-year">2025</div>
+                <div class="t-content">
+                    <h3>Q1 — THE IDEA</h3>
+                    <p>Two friends, one ranked match, one toxic lobby. The question: <em>"what if I could sound like literally anything?"</em></p>
+                </div>
+            </li>
+            <li class="timeline-item slide-up">
+                <div class="t-dot pink"></div>
+                <div class="t-year">2025</div>
+                <div class="t-content">
+                    <h3>Q2 — THE PROTOTYPE</h3>
+                    <p>First Web Audio graph with pitch shifting. Crashed every browser. Lived.</p>
+                </div>
+            </li>
+            <li class="timeline-item slide-up">
+                <div class="t-dot cyan"></div>
+                <div class="t-year">2025</div>
+                <div class="t-content">
+                    <h3>Q3 — THE FORGE</h3>
+                    <p>Built the preset engine. 100 voices, then 500, then 1,200. The mask was complete.</p>
+                </div>
+            </li>
+            <li class="timeline-item slide-up">
+                <div class="t-dot"></div>
+                <div class="t-year">2026</div>
+                <div class="t-content">
+                    <h3>Q1 — VOXFORGE 1.0</h3>
+                    <p>Public release. Windows first, Android soon. The lobby will never be the same.</p>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <!-- VALUES -->
+    <section class="values-section">
+        <h2 class="section-title">CORE <span class="neon-pink">VALUES</span></h2>
+        <div class="values-grid">
+            <div class="value-card blur-in" data-magnetic>
+                <div class="value-num">01</div>
+                <h3>ANONYMITY FIRST</h3>
+                <p>Your voice, your business. Period.</p>
+            </div>
+            <div class="value-card blur-in" data-magnetic>
+                <div class="value-num">02</div>
+                <h3>OPEN TECH</h3>
+                <p>Web standards, no vendor lock-in. Runs on anything.</p>
+            </div>
+            <div class="value-card blur-in" data-magnetic>
+                <div class="value-num">03</div>
+                <h3>CHAOS AS A SERVICE</h3>
+                <p>We exist to make the lobby weird. That's the whole point.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="download-section">
+        <div class="download-card glow-pulse">
+            <h2>JOIN THE <span class="neon-green">CHAOS</span></h2>
+            <p>50,000+ players have already forged their identity. Your turn.</p>
+            <a href="download.html" class="brutal-btn neon-green-btn large-btn" data-magnetic>GET VOXFORGE →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">VOX<span class="neon-pink">FORGE</span></div>
+            <p>&copy; 2026 Antigravity. Forge the sound of victory.</p>
+            <div class="footer-links">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="download.html">DOWNLOAD</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
