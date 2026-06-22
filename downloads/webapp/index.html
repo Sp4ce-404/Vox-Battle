@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VOXFORGE</title>
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 768px)">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="mobile-app">
+    <header class="mobile-nav">
+        <div class="brand">VOX<span class="neon-pink">FORGE</span></div>
+        <div class="status-bar">
+            <div class="signal-bar"></div>
+            <div class="battery">88%</div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <section class="control-panel">
+            <div class="brutal-card active-glow">
+                <div class="card-label">INPUT SOURCE</div>
+                <div class="input-selector">
+                    <span class="active">MIC_01</span>
+                    <span>VIRTUAL_SDR</span>
+                </div>
+            </div>
+
+            <div class="brutal-card">
+                <div class="card-label">MASTER GAIN</div>
+                <div class="gain-slider-container">
+                    <input type="range" class="neon-slider" min="0" max="100" value="75">
+                    <span class="gain-value">75%</span>
+                </div>
+            </div>
+
+            <div class="brutal-card visualizer-card">
+                <div class="card-label">SIGNAL_MONITOR</div>
+                <canvas id="visualizer-canvas" class="visualizer-canvas"></canvas>
+            </div>
+        </section>
+
+        <section class="voice-section">
+            <h2 class="section-title">MODULATION_CORE</h2>
+
+            <div class="voice-search-container">
+                <input type="text" id="voice-search" placeholder="Search voices..." class="voice-search">
+                <button id="search-clear" class="hidden search-clear-btn">X</button>
+            </div>
+
+            <div class="voices-grid-container">
+                <div id="categories-tabs" class="mobile-tabs"></div>
+                <div id="voices-grid" class="mobile-grid"></div>
+            </div>
+
+            <div id="voices-loading" class="loading-indicator hidden">LOADING_MODS...</div>
+            <div id="voices-empty" class="empty-state hidden">NO_VOICES_FOUND</div>
+        </section>
+    </main>
+
+    <nav class="bottom-bar">
+        <div class="nav-item active">
+            <div class="icon">CORE</div>
+            <span>CORE</span>
+        </div>
+        <div class="nav-item">
+            <div class="icon">SYS</div>
+            <span>SYS</span>
+        </div>
+        <div class="nav-item">
+            <div class="icon">USER</div>
+            <span>USER</span>
+        </div>
+    </nav>
+
+    <button id="pwa-install-btn" class="hidden pwa-install-btn">INSTALL APP</button>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

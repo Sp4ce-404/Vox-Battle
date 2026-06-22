@@ -1,0 +1,19 @@
+:root {
+    --bg-color: #08080c;
+    --text-color: #ffffff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff00;
+    --neon-cyan: #00ffff;
+    --border-width: 4px;
+    --brutal-shadow: 8px 8px 0px 0px #000;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+}

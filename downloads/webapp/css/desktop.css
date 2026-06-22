@@ -1,0 +1,101 @@
+/* =========================================================
+   DESKTOP UI OVERRIDES (Wide Screens)
+   ========================================================= */
+
+@media (min-width: 768px) {
+    /* Hide mobile specific elements */
+    .bottom-bar {
+        display: none !important;
+    }
+
+    /* Make app-container a multi-pane layout */
+    .app-container {
+        display: grid;
+        grid-template-columns: 350px 1fr;
+        gap: 40px;
+        padding: 30px 40px;
+        padding-bottom: 30px; /* override mobile padding */
+        max-width: 1600px;
+        margin: 0 auto;
+        overflow: hidden; /* Stop whole page scrolling */
+        height: 100%;
+    }
+
+    /* Top Navigation Desktop Tweaks */
+    .mobile-nav {
+        padding: 15px 40px;
+    }
+    .brand {
+        font-size: 1.5rem;
+    }
+
+    /* Control Panel (Left Pane) */
+    .control-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 0;
+        overflow-y: auto;
+        padding-right: 15px;
+    }
+
+    /* Custom brutalist scrollbar for desktop */
+    .control-panel::-webkit-scrollbar { width: 8px; }
+    .control-panel::-webkit-scrollbar-track { background: var(--bg-black); border-left: 1px solid #333; }
+    .control-panel::-webkit-scrollbar-thumb { background: var(--neon-pink); border: 1px solid var(--text-white); }
+
+    .brutal-card {
+        padding: 20px;
+    }
+
+    /* Voice Section (Right Pane) */
+    .voice-section {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+
+    .voices-grid-container {
+        flex: 1;
+        max-height: none; /* override mobile height limit */
+        overflow-y: auto;
+        padding-right: 15px;
+    }
+
+    .voices-grid-container::-webkit-scrollbar { width: 8px; }
+    .voices-grid-container::-webkit-scrollbar-track { background: var(--bg-black); border-left: 1px solid #333; }
+    .voices-grid-container::-webkit-scrollbar-thumb { background: var(--neon-green); border: 1px solid var(--text-white); }
+
+    /* Increase columns for desktop voice cards */
+    .mobile-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .voice-card {
+        min-height: 110px;
+        padding: 16px;
+    }
+
+    .voice-name {
+        font-size: 0.9rem;
+    }
+    
+    .voice-tag {
+        font-size: 0.65rem;
+    }
+
+    .voice-search-container {
+        margin-bottom: 25px;
+    }
+
+    .voice-search {
+        font-size: 1.1rem;
+        padding: 15px 40px 15px 20px;
+    }
+}
