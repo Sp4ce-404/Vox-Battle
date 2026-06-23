@@ -278,7 +278,7 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7.5px 5%; /* Adjusted to 7.5px as requested */
+    padding: 12.5px 5%; /* Increased to 12.5px as requested */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -287,8 +287,8 @@ a { text-decoration: none; color: inherit; }
     -webkit-backdrop-filter: blur(12px);
     border-bottom: var(--border-width) solid var(--text-color);
     transition: padding 0.3s var(--ease-snap);
-    min-height: 7.5px; /* Ensures it stays at 7.5px */
-    height: 7.5px; /* Fixed height */
+    min-height: 12.5px; /* Ensures it stays at 12.5px */
+    height: 12.5px; /* Fixed height */
 }
 
 /* Hide the nav links as requested - only keeping brand and hamburger */
@@ -382,16 +382,16 @@ a { text-decoration: none; color: inherit; }
     align-items: center;
     gap: 2px; /* Kept reduced gap */
     cursor: pointer;
-    margin-top: -4px; /* May need adjustment for new height */
+    margin-top: -6px; /* Adjusted for new height */
 }
 
-.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(3px, 3px); }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(3px, -3px); }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
 
 .mobile-menu {
     position: fixed;
-    top: 7.5px; /* Matches navbar height */
+    top: 12.5px; /* Matches navbar height */
     left: 0;
     right: 0;
     background: var(--bg-color);
@@ -432,7 +432,7 @@ a { text-decoration: none; color: inherit; }
 .hero {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    min-height: calc(100vh - 7.5px); /* Adjusted for new navbar height */
+    min-height: calc(100vh - 12.5px); /* Adjusted for new navbar height */
     padding: 60px 5%;
     align-items: center;
     gap: 60px;
@@ -765,7 +765,7 @@ a { text-decoration: none; color: inherit; }
 .info-box .info-num {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-center;
     width: 40px;
     height: 40px;
     background: var(--neon-green);
