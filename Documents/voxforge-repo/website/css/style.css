@@ -86,20 +86,19 @@ a { text-decoration: none; color: inherit; }
     opacity: 0.7;
 }
 
-/* Custom cursor ring */
+/* Custom cursor ring - Enhanced for target-like cursor */
 .cursor-ring {
     position: fixed;
     top: 0;
     left: 0;
-    width: 32px;
-    height: 32px;
+    width: 24px;  /* Smaller base size */
+    height: 24px;
     border: var(--border-width-thin) solid var(--neon-pink);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: width 0.2s var(--ease-snap), height 0.2s var(--ease-snap),
-                border-color 0.2s, background 0.2s;
+    transition: width 0.1s ease, height 0.1s ease, border-color 0.1s ease, background 0.1s ease;
     mix-blend-mode: difference;
     display: none;
 }
@@ -109,10 +108,52 @@ a { text-decoration: none; color: inherit; }
 }
 
 .cursor-ring.hovering {
-    width: 60px;
-    height: 60px;
+    width: 40px;  /* Expand on hover */
+    height: 40px;
     background: var(--neon-pink);
     border-color: var(--neon-pink);
+}
+
+/* Target cursor effect - expanding rings */
+.cursor-ring::before,
+.cursor-ring::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.cursor-ring::before {
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1px solid var(--neon-pink);
+    animation: pulseOut 1.5s infinite;
+}
+
+.cursor-ring::after {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 1px solid var(--neon-pink);
+    animation: pulseOut 2s infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes pulseOut {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
 }
 
 /* =====================================================
@@ -271,14 +312,14 @@ a { text-decoration: none; color: inherit; }
 .stagger > * { animation-delay: calc(var(--i, 0) * 80ms); }
 
 /* =====================================================
-   NAVBAR - ADJUSTED HEIGHT
+   NAVBAR - ADJUSTED HEIGHT WITH LINKS BACK
    ===================================================== */
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12.5px 5%; /* Increased to 12.5px as requested */
+    padding: 15.5px 5%; /* Increased by 3px from 12.5px to 15.5px */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -287,24 +328,25 @@ a { text-decoration: none; color: inherit; }
     -webkit-backdrop-filter: blur(12px);
     border-bottom: var(--border-width) solid var(--text-color);
     transition: padding 0.3s var(--ease-snap);
-    min-height: 12.5px; /* Ensures it stays at 12.5px */
-    height: 12.5px; /* Fixed height */
+    min-height: 15.5px; /* Ensures it stays at 15.5px */
+    height: 15.5px; /* Fixed height */
 }
 
-/* Hide the nav links as requested - only keeping brand and hamburger */
 .nav-links {
-    display: none; /* Hidden as requested */
+    display: flex; /* Brought back the nav links */
+    gap: 30px;
+    align-items: center;
 }
 
 .nav-brand {
     font-family: var(--font-display);
-    font-size: 1.2rem; /* Kept reduced size for now */
+    font-size: 1.4rem; /* Slightly increased to fit better */
     font-weight: 900;
     letter-spacing: -0.02em;
     position: relative;
     transition: transform 0.2s var(--ease-snap);
     display: inline-block;
-    line-height: 1; /* Ensures proper vertical alignment */
+    line-height: 1;
 }
 
 .nav-brand:hover {
@@ -319,7 +361,7 @@ a { text-decoration: none; color: inherit; }
 .nav-links a {
     color: var(--text-color);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.95rem; /* Slightly increased */
     font-family: var(--font-display);
     letter-spacing: 0.05em;
     position: relative;
@@ -375,23 +417,31 @@ a { text-decoration: none; color: inherit; }
     display: none;
     background: transparent;
     border: var(--border-width) solid var(--text-color);
-    width: 24px; /* Kept reduced for now */
-    height: 24px; /* Kept reduced for now */
+    width: 28px; /* Slightly increased */
+    height: 28px; /* Slightly increased */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2px; /* Kept reduced gap */
+    gap: 3px; /* Slightly increased gap */
     cursor: pointer;
-    margin-top: -6px; /* Adjusted for new height */
+    margin-top: -4px; /* Adjusted for new height */
 }
 
-.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+.hamburger span {
+    display: block;
+    width: 20px; /* Slightly increased */
+    height: 3px; /* Kept same */
+    background: var(--text-color);
+    transition: 0.3s var(--ease-snap);
+}
+
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 .mobile-menu {
     position: fixed;
-    top: 12.5px; /* Matches navbar height */
+    top: 15.5px; /* Matches navbar height */
     left: 0;
     right: 0;
     background: var(--bg-color);
@@ -421,7 +471,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* Still hidden on mobile */
+    .nav-links { display: none; } /* Hidden on mobile */
     .hamburger { display: flex; }
 }
 
@@ -432,7 +482,7 @@ a { text-decoration: none; color: inherit; }
 .hero {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    min-height: calc(100vh - 12.5px); /* Adjusted for new navbar height */
+    min-height: calc(100vh - 15.5px); /* Adjusted for new navbar height */
     padding: 60px 5%;
     align-items: center;
     gap: 60px;
@@ -765,7 +815,7 @@ a { text-decoration: none; color: inherit; }
 .info-box .info-num {
     display: inline-flex;
     align-items: center;
-    justify-center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     background: var(--neon-green);
