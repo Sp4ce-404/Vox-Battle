@@ -271,14 +271,14 @@ a { text-decoration: none; color: inherit; }
 .stagger > * { animation-delay: calc(var(--i, 0) * 80ms); }
 
 /* =====================================================
-   NAVBAR - MINIMAL VERSION
+   NAVBAR - ADJUSTED HEIGHT
    ===================================================== */
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2.5px 5%; /* Made much smaller as requested (2.5px) */
+    padding: 7.5px 5%; /* Adjusted to 7.5px as requested */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -287,8 +287,8 @@ a { text-decoration: none; color: inherit; }
     -webkit-backdrop-filter: blur(12px);
     border-bottom: var(--border-width) solid var(--text-color);
     transition: padding 0.3s var(--ease-snap);
-    min-height: 2.5px; /* Ensures it stays at 2.5px */
-    height: 2.5px; /* Fixed height */
+    min-height: 7.5px; /* Ensures it stays at 7.5px */
+    height: 7.5px; /* Fixed height */
 }
 
 /* Hide the nav links as requested - only keeping brand and hamburger */
@@ -298,7 +298,7 @@ a { text-decoration: none; color: inherit; }
 
 .nav-brand {
     font-family: var(--font-display);
-    font-size: 1.2rem; /* Reduced to fit in small bar */
+    font-size: 1.2rem; /* Kept reduced size for now */
     font-weight: 900;
     letter-spacing: -0.02em;
     position: relative;
@@ -375,22 +375,14 @@ a { text-decoration: none; color: inherit; }
     display: none;
     background: transparent;
     border: var(--border-width) solid var(--text-color);
-    width: 24px; /* Reduced to fit */
-    height: 24px; /* Reduced to fit */
+    width: 24px; /* Kept reduced for now */
+    height: 24px; /* Kept reduced for now */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2px; /* Reduced gap */
+    gap: 2px; /* Kept reduced gap */
     cursor: pointer;
-    margin-top: -4px; /* Adjust for positioning */
-}
-
-.hamburger span {
-    display: block;
-    width: 16px; /* Reduced to fit */
-    height: 2px; /* Reduced to fit */
-    background: var(--text-color);
-    transition: 0.3s var(--ease-snap);
+    margin-top: -4px; /* May need adjustment for new height */
 }
 
 .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(3px, 3px); }
@@ -399,7 +391,7 @@ a { text-decoration: none; color: inherit; }
 
 .mobile-menu {
     position: fixed;
-    top: 2.5px; /* Matches navbar height */
+    top: 7.5px; /* Matches navbar height */
     left: 0;
     right: 0;
     background: var(--bg-color);
@@ -440,7 +432,7 @@ a { text-decoration: none; color: inherit; }
 .hero {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    min-height: calc(100vh - 2.5px); /* Adjusted for new navbar height */
+    min-height: calc(100vh - 7.5px); /* Adjusted for new navbar height */
     padding: 60px 5%;
     align-items: center;
     gap: 60px;
